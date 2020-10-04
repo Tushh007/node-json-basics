@@ -8,6 +8,26 @@ app.set('view engine', 'hbs')
 
 app.use(express.static(publicDirectoryPath))
 
+app.get('', (req, res) => {
+    res.render('index', {
+        title: 'Weather',
+        name: 'Tushar Langer'
+    })
+})
+
+app.get('/about', (req, res) => {
+    res.render('about', {
+        title: 'About me',
+        name: 'Tushar Langer'
+    })
+})
+
+app.get('/help', (req, res) => {
+    res.render('help', {
+        helpText: 'This is some helpful.'
+    })
+})
+
 app.get('/weather', (req, res) => {
     res.send({
         lcoation: 'Philadaphia',
