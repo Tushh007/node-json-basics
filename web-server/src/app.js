@@ -2,10 +2,16 @@ const path = require('path')
 const express = require('express')
 
 const app = express()
+
+// Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
+const viewsPath = path.join(__dirname, '../templates')
 
+// Handlebars engine and view location
 app.set('view engine', 'hbs')
+app.set('views', viewsPath)
 
+// Set up static directory to serve
 app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
